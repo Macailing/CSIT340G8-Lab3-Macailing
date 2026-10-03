@@ -5,15 +5,15 @@ const Header = (props) => {
 }
 
 const Part = (props) => {
-  return <p className="text-slate-700">{props.name} {props.units} units</p>
+  return <p className="text-slate-700">{props.part.name} {props.part.units} units</p>
 }
 
 const Content = (props) => {
   return (
     <div className="mt-4 space-y-2">
-      <Part name={props.part1} units={props.units1} />
-      <Part name={props.part2} units={props.units2} />
-      <Part name={props.part3} units={props.units3} />
+      <Part part={props.part1} />
+      <Part part={props.part2} />
+      <Part part={props.part3} />
     </div>
   )
 }
@@ -31,27 +31,20 @@ const Footer = (props) => {
 }
 
 const App = () => {
-  const course = 'Your Real CIT-U Subject Title'
-  const part1 = 'CSIT340'
-  const units1 = 3
-  const part2 = 'IT317'
-  const units2 = 3
-  const part3 = 'CSIT321'
-  const units3 = 2
+  const course = 'CSIT340'
+  const part1 = { name: 'CSIT340', units: 3 }
+  const part2 = { name: 'IT317', units: 3 }
+  const part3 = { name: 'CSIT321', units: 3 }
 
-  const fullName = 'SER RAINEIR BENEDICT U. MACAILING'
+  const fullName = 'Ser Raineir Benedict U. Macailing'
   const code = 'CSIT340'
   const section = 'G8'
 
   return (
     <div className="mx-auto mt-10 max-w-xl rounded-lg bg-white p-6 shadow">
       <Header course={course} />
-      <Content
-        part1={part1} units1={units1}
-        part2={part2} units2={units2}
-        part3={part3} units3={units3}
-      />
-      <Total total={units1 + units2 + units3} />
+      <Content part1={part1} part2={part2} part3={part3} />
+      <Total total={part1.units + part2.units + part3.units} />
       <Footer name={fullName} code={code} section={section} />
     </div>
   )
