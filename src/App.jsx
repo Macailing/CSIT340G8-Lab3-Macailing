@@ -4,12 +4,16 @@ const Header = (props) => {
   return <h1 className="text-2xl font-bold text-slate-900">{props.course}</h1>
 }
 
+const Part = (props) => {
+  return <p className="text-slate-700">{props.name} {props.units} units</p>
+}
+
 const Content = (props) => {
   return (
     <div className="mt-4 space-y-2">
-      <p className="text-slate-700">{props.part1} {props.units1} units</p>
-      <p className="text-slate-700">{props.part2} {props.units2} units</p>
-      <p className="text-slate-700">{props.part3} {props.units3} units</p>
+      <Part name={props.part1} units={props.units1} />
+      <Part name={props.part2} units={props.units2} />
+      <Part name={props.part3} units={props.units3} />
     </div>
   )
 }
@@ -28,11 +32,11 @@ const Footer = (props) => {
 
 const App = () => {
   const course = 'Your Real CIT-U Subject Title'
-  const part1 = 'CSIT321'
+  const part1 = 'CSIT340'
   const units1 = 3
-  const part2 = 'CSIT340'
+  const part2 = 'IT317'
   const units2 = 3
-  const part3 = 'IT317'
+  const part3 = 'CSIT321'
   const units3 = 2
 
   const fullName = 'SER RAINEIR BENEDICT U. MACAILING'
